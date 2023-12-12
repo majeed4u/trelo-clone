@@ -8,7 +8,7 @@ interface InfoProps {}
 export default function Info() {
   const { organization, isLoaded } = useOrganization();
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <Info.Skeleton />;
   }
   return (
     <div className=' flex items-center gap-x-4'>
@@ -31,3 +31,15 @@ export default function Info() {
     </div>
   );
 }
+
+Info.Skeleton = function InfoSkeleton() {
+  return (
+    <div className=' flex items-center gap-x-4'>
+      <div className=' w-[60px] h-[60px] rounded-md bg-gray-200 animate-pulse'></div>
+      <div className=' space-y-1'>
+        <div className=' w-[200px] h-4 bg-gray-200 animate-pulse'></div>
+        <div className=' w-[100px] h-4 bg-gray-200 animate-pulse'></div>
+      </div>
+    </div>
+  );
+};

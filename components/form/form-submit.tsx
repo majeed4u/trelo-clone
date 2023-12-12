@@ -21,7 +21,7 @@ export const FormSubmit = ({
   children,
   className,
   disabled,
-  variant,
+  variant = 'primary',
 }: FormSubmitProps) => {
   const { pending } = useFormStatus();
   return (
@@ -30,7 +30,7 @@ export const FormSubmit = ({
         type='submit'
         variant={variant}
         disabled={pending || disabled}
-        className={cn()}
+        className={cn(className)}
       >
         {children}
       </Button>
